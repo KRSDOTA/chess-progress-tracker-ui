@@ -1,38 +1,29 @@
-import { ApiService } from "../../ApiService"
-import { useState } from "react";
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
 
 function ChessRapid() {
 
-    const [data, setData] = useState(null);
-
-    const apiService = new ApiService('http://localhost:8080/api'); // Replace with your API base URL
+    const [statsData, setStatsData] = useState("hi mom");
 
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const result = await apiService.fetchData('/statistics/krsdota'); // Replace with your API endpoint
-          setData(result);
-        } catch (error) {
-          // Handle error, e.g., show an error message to the user
+      fetch("http://127.0.0.1:8080/api/statistics/krsdota",   
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
         }
-      };
-  
-      fetchData();
-    }, []); // Empty dependency array ensures that the effect runs only once, similar to componentDidMount
-  
+      }).then((response) => {
+        console.log(response);
+        setStatsData(response);
+      });
+    }, []);
+
     return (
         <div>
-            {data ? (
-            // Render your data here
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-            ) : (
-            // Loading indicator or other UI while data is being fetched
-            <p>Loading...</p>
-            )}
+          {statsData}
       </div>
-    )
-}
+    );
+  }
 
 export default ChessRapid;
