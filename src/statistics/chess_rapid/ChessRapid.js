@@ -1,30 +1,49 @@
 import { useEffect, useState } from "react";
 
-function ChessRapid() {
- 
-    const [statsData, setStatsData] = useState(null);
+function ChessRapid({rapidData}) {
 
-    useEffect(() => {
-      fetch("http://localhost:8080/api/statistics/krsdota",   
-      {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        }
-      }).then((response) => {
-        console.log(response);
-        return response.json();
-      }).then(data => {
-        console.log(data);
-        setStatsData(data.chess_rapid.best.rating);
-      });
-    }, []);
+  console.log("Mounting the Chess Rapid component");
+  console.log(rapidData);
 
     return (
+      <>
+      <h1>
+        Rapid Stats
+      </h1>
+      <div>
+        Last 
         <div>
-          {statsData}
+          {rapidData.last.date}
+        </div>
+        <div>
+          {rapidData.last.rating}
+        </div>
+        <div>
+          {rapidData.last.rd}
+        </div>
       </div>
+      <div>
+        Best 
+        <div>
+          {rapidData.best.date}
+        </div>
+        <div>
+          {rapidData.best.rating}
+        </div>
+        <div>
+          {rapidData.best.game}
+        </div>
+      </div>
+      <div>
+        Record
+        <div>
+          {rapidData.record.win}
+        </div>
+        <div>
+          {rapidData.record.loss}
+        </div>
+      </div>
+      </>
     );
   }
 
