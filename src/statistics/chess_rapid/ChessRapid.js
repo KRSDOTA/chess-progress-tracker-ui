@@ -1,8 +1,5 @@
-import { useEffect, useState } from "react";
-
 function ChessRapid({rapidData}) {
-
-  console.log("Mounting the Chess Rapid component");
+  
   console.log(rapidData);
 
     return (
@@ -18,7 +15,7 @@ function ChessRapid({rapidData}) {
         <div>
           {rapidData.last.rating}
         </div>
-        <div>
+        <div> 
           {rapidData.last.rd}
         </div>
       </div>
