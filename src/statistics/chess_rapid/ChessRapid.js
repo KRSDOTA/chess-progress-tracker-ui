@@ -1,43 +1,53 @@
-function ChessRapid({rapidData}) {
-  
-  console.log(rapidData);
+import { createLocalDate } from "../PraseDateHelper";
 
+
+function ChessRapid({rapidData}) {
+    
+    const lastDate = createLocalDate(rapidData.last.date);
+    const bestDate = createLocalDate(rapidData.best.date);
+    
     return (
       <>
       <h1>
         Rapid Stats
       </h1>
       <div>
-        Last 
+        <h2>
+          Last
+        </h2>
         <div>
-          {rapidData.last.date}
+          {'Date - ' + lastDate}
         </div>
         <div>
-          {rapidData.last.rating}
+          {'Rating - ' + rapidData.last.rating}
         </div>
         <div> 
-          {rapidData.last.rd}
+          {'RD - ' + rapidData.last.rd}
         </div>
       </div>
       <div>
-        Best 
+        <h2>
+          Best
+        </h2>
         <div>
-          {rapidData.best.date}
+          {'Date - ' + bestDate}
         </div>
         <div>
-          {rapidData.best.rating}
+          {'Rating - ' + rapidData.best.rating}
         </div>
         <div>
-          {rapidData.best.game}
+          {'Best Game - ' + rapidData.best.game}
         </div>
       </div>
       <div>
-        Record
+        <h2>
+          Record
+        </h2>
         <div>
-          {rapidData.record.win}
+          {'Wins - ' + rapidData.record.win}
         </div>
         <div>
-          {rapidData.record.loss}
+          {'Losses - ' +  rapidData.record.loss}
         </div>
       </div>
       </>
