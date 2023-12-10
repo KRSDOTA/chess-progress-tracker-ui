@@ -1,3 +1,5 @@
+import ChessBlitz from "./chess_blitz/ChessBlitz";
+import ChessBullet from "./chess_bullet/ChessBullet";
 import ChessRapid from "./chess_rapid/ChessRapid";
 import { useEffect, useState } from "react";
 
@@ -22,6 +24,8 @@ export default function Statistics() {
     return (
       <>
         { statsData && <ChessRapid rapidData={statsData.chess_rapid} /> }
+        { statsData && <ChessBlitz blitzData={statsData.chess_blitz} /> }
+        { statsData && <ChessBullet bulletData={statsData.chess_bullet} /> }
       </>
     );
 

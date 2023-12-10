@@ -1,8 +1,9 @@
 import { createLocalDate } from "../PraseDateHelper";
 
 export default function GameStats({ gameStats }) {
-    const lastDate = createLocalDate(gameStats.last.date);
-    const bestDate = createLocalDate(gameStats.best.date);
+    
+    const lastDate = gameStats && createLocalDate(gameStats.last.date);
+    const bestDate = gameStats.best && createLocalDate(gameStats.best.date);
 
     return (
         <>

@@ -1,5 +1,6 @@
 import GameStats from "../game/GameStats";
 
+
 function ChessRapid({rapidData}) {
     
     return (
@@ -7,7 +8,7 @@ function ChessRapid({rapidData}) {
       <h1>
         Rapid Stats
       </h1>
-      <GameStats gameStats={rapidData}/>
+      <GameStats gameStats={rapidData} />
       </>
     );
   }
