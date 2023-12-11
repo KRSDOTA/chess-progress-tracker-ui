@@ -22,11 +22,11 @@ export default function Statistics() {
     }, []);
 
     return (
-      <>
+      <div className="Statistics">
         { statsData && <ChessRapid rapidData={statsData.chess_rapid} /> }
         { statsData && <ChessBlitz blitzData={statsData.chess_blitz} /> }
         { statsData && <ChessBullet bulletData={statsData.chess_bullet} /> }
-      </>
+      </div>
     );
 
 }
