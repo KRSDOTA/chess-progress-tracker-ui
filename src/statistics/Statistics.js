@@ -1,3 +1,4 @@
+import SearchBar from "./search/SearchBar";
 import ChessBlitz from "./chess_blitz/ChessBlitz";
 import ChessBullet from "./chess_bullet/ChessBullet";
 import ChessRapid from "./chess_rapid/ChessRapid";
@@ -21,8 +22,13 @@ export default function Statistics() {
       );
     }, []);
 
+    function searchStatsApiHandler(searchQuery) {
+      console.log('searched API with query', searchQuery);
+    }
+
     return (
       <div className="Statistics">
+        <SearchBar onSearch={searchStatsApiHandler}/>
         { statsData && <ChessRapid rapidData={statsData.chess_rapid} /> }
         { statsData && <ChessBlitz blitzData={statsData.chess_blitz} /> }
         { statsData && <ChessBullet bulletData={statsData.chess_bullet} /> }
