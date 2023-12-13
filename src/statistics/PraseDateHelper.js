@@ -7,8 +7,6 @@ export function createLocalDate(timestamp) {
 
     const convertedDate = new Date(timestamp * 1000);
 
-    console.log('Date ', convertedDate);
-
     // Get local date components
     const year = convertedDate.getFullYear();
     const month = convertedDate.getMonth() + 1; // Months are zero-indexed, so add 1
