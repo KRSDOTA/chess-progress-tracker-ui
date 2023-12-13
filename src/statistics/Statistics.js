@@ -11,6 +11,10 @@ export default function Statistics() {
 
     function searchStatsApiHandler(searchQueryEvent) {
       const currentSearchQuery = searchQueryEvent.target.value;
+      if(!currentSearchQuery){
+        return;
+      }
+      
       setCurrentSearchQuery(currentSearchQuery);
       getStatisticsForUsername(currentSearchQuery)
       .then((response) => 
