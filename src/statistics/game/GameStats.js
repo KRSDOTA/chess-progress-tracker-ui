@@ -32,7 +32,7 @@ export default function GameStats({ gameStats }) {
           {'Rating - ' + gameStats.best.rating}
         </div>
         <div>
-          {'Best Game - ' + gameStats.best.game}
+          <a href={gameStats.best.game}>Best Performance</a>
         </div>
       </div> }
       { gameStats.record && <div>
