@@ -10,6 +10,18 @@ function ChessRapid({rapidData}) {
           Rapid Stats
         </h2>
         <GameStats gameStats={rapidData} />
+        <h2>
+          Rating Trends
+        </h2>
+        <div>
+          1 Day 
+        </div>
+        <div>
+          3 Day 
+        </div>
+        <div>
+          7 Day 
+        </div>
       </div>
     );
   }

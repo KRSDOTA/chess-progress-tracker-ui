@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import _ from 'lodash'
 
 export default function SearchBar({onSearchHandler}) {
