@@ -1,3 +1,4 @@
+import './Statistics.css'
 import SearchBar from "./search/SearchBar";
 import ChessBlitz from "./chess_blitz/ChessBlitz";
 import ChessBullet from "./chess_bullet/ChessBullet";
@@ -26,18 +27,20 @@ export default function Statistics() {
 
     }
 
-    function noStatsPresent() {
+    function noStatsPresent(){
       return !statsData || (!statsData.chess_rapid && !statsData.chess_blitz && !statsData.chess_bullet);
     }
 
     return (
-      <div className="Statistics">
+      <div className="statistics-container">
         <h1>Displaying Game Stats for {searchQuery.toUpperCase()}</h1>
         <SearchBar onSearchHandler={searchStatsApiHandler}/> 
-        {noStatsPresent() && <NoStatsFound />}
-        { statsData && statsData.chess_rapid && <ChessRapid rapidData={statsData.chess_rapid} /> }
-        { statsData && statsData.chess_blitz && <ChessBlitz blitzData={statsData.chess_blitz} /> }
-        { statsData && statsData.chess_bullet && <ChessBullet bulletData={statsData.chess_bullet} /> }
+        <div className='statistics-game-container'>
+          {noStatsPresent() && <NoStatsFound />}
+          { statsData && statsData.chess_rapid && <ChessRapid rapidData={statsData.chess_rapid} /> }
+          { statsData && statsData.chess_blitz && <ChessBlitz blitzData={statsData.chess_blitz} /> }
+          { statsData && statsData.chess_bullet && <ChessBullet bulletData={statsData.chess_bullet} /> }
+        </div>
       </div>
     );
 

@@ -1,5 +1,13 @@
-.Statistics {
-    /* display: flex;
+.statistics-container {
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.statistics-game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
