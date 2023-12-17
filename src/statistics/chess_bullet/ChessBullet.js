@@ -1,15 +1,16 @@
+import './ChessBullet.css'
 import GameStats from "../game/GameStats";
 
 export default function ChessBullet({bulletData}) {
 
 
     return (
-        <>
-        <h1>
-          Bullet Stats
-        </h1>
-        <GameStats gameStats={bulletData} />
-        </>
+        <div className='chess-bullet-container'>
+          <h2>
+            Bullet Stats
+          </h2>
+          <GameStats gameStats={bulletData} />
+        </div>
       );
     
 }

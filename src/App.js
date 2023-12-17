@@ -3,9 +3,7 @@ import Statistics from './statistics/Statistics';
 
 function App() {
   return (
-    <div className='App'>
-      <Statistics />
-    </div>
+    <Statistics />
   );
 }
 

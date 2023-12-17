@@ -27,7 +27,7 @@ export default function Statistics() {
 
     }
 
-    function noStatsPresent(){
+    function noStatsPresent() {
       return !statsData || (!statsData.chess_rapid && !statsData.chess_blitz && !statsData.chess_bullet);
     }
 

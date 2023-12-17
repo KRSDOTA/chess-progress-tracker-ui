@@ -1,15 +1,16 @@
+import './ChessRapid.css'
 import GameStats from "../game/GameStats";
 
 
 function ChessRapid({rapidData}) {
     
     return (
-      <>
-      <h1>
-        Rapid Stats
-      </h1>
-      <GameStats gameStats={rapidData} />
-      </>
+      <div className="chess-rapid-container">
+        <h2>
+          Rapid Stats
+        </h2>
+        <GameStats gameStats={rapidData} />
+      </div>
     );
   }
 
