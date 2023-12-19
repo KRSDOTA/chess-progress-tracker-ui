@@ -6,6 +6,7 @@ import ChessRapid from "./chess_rapid/ChessRapid";
 import { useEffect, useState } from "react";
 import { getStatisticsForUsername } from "./StatisticsService";
 import NoStatsFound from "./NoStatsFound";
+import { Box } from '@mui/material';
 
 export default function Statistics() {
     const [statsData, setStatsData] = useState(null);
@@ -32,16 +33,16 @@ export default function Statistics() {
     }
 
     return (
-      <div className="statistics-container">
+      <Box className="statistics-container">
         <h1>Displaying Game Stats for {searchQuery.toUpperCase()}</h1>
         <SearchBar onSearchHandler={searchStatsApiHandler}/> 
-        <div className='statistics-game-container'>
+        <Box className='statistics-game-container'>
           {noStatsPresent() && <NoStatsFound />}
           { statsData && statsData.chess_rapid && <ChessRapid rapidData={statsData.chess_rapid} /> }
           { statsData && statsData.chess_blitz && <ChessBlitz blitzData={statsData.chess_blitz} /> }
           { statsData && statsData.chess_bullet && <ChessBullet bulletData={statsData.chess_bullet} /> }
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
 
 }

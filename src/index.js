@@ -9,14 +9,26 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#efb218',
+      main: '#fb2f05',
     },
     secondary: {
-      main: '#1855ef',
+      main: '#7e7e81',
     },
-    text: {
-      primary: 'rgba(243,12,12,0.87)',
+  },
+  typography: {
+    h1: {
+      fontFamily: 'Droid Sans',
     },
+    h2: {
+      fontFamily: 'Droid Sans',
+    },
+    h3: {
+      fontFamily: 'Droid Sans'
+    },
+    button: {
+      fontFamily: 'Droid Sans',
+    },
+    fontFamily: 'Droid Sans',
   },
 });
 

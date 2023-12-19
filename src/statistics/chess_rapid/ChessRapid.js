@@ -1,11 +1,12 @@
 import './ChessRapid.css'
 import GameStats from "../game/GameStats";
+import { Box, Card } from '@mui/material';
 
 
 function ChessRapid({rapidData}) {
     
     return (
-      <div className="chess-rapid-container">
+      <Card className="chess-rapid-container">
         <h2>
           Rapid Stats
         </h2>
@@ -13,16 +14,16 @@ function ChessRapid({rapidData}) {
         <h2>
           Rating Trends
         </h2>
-        <div>
+        <Box>
           1 Day 
-        </div>
-        <div>
+        </Box>
+        <Box>
           3 Day 
-        </div>
-        <div>
+        </Box>
+        <Box>
           7 Day 
-        </div>
-      </div>
+        </Box>
+      </Card>
     );
   }
 

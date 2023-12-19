@@ -1,11 +1,12 @@
 import "./ChessBlitz.css"
 import GameStats from "../game/GameStats";
+import { Box, Card } from "@mui/material";
 
 export default function ChessBlitz({blitzData}) {
 
 
     return (
-        <div className="chess-blitz-container">
+        <Card className="chess-blitz-container">
           <h2>
             Blitz Stats
           </h2>
@@ -13,16 +14,16 @@ export default function ChessBlitz({blitzData}) {
           <h2>
             Rating Trends
           </h2>
-          <div>
+          <Box>
             1 Day 
-          </div>
-          <div>
+          </Box>
+          <Box>
             3 Day 
-          </div>
-          <div>
+          </Box>
+          <Box>
             7 Day 
-          </div>
-        </div>
+          </Box>
+        </Card>
       );
     
 }

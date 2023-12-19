@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import _ from 'lodash'
+import { TextField } from '@mui/material';
 
 export default function SearchBar({onSearchHandler}) {
 
@@ -15,11 +16,14 @@ export default function SearchBar({onSearchHandler}) {
 
     return (
         <>
-            <input
-            type="text"
-            placeholder="Username"
-            onChange={debouncedSearchResults}>
-            </input>
+            <TextField
+            hiddenLabel
+            id="filled-hidden-label-small"
+            defaultValue="username"
+            label="username"
+            variant="outlined"
+            onChange={debouncedSearchResults}
+            />
         </>
     );
 

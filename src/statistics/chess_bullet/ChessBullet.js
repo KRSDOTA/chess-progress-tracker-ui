@@ -1,11 +1,12 @@
 import './ChessBullet.css'
 import GameStats from "../game/GameStats";
+import { Box, Card } from '@mui/material';
 
 export default function ChessBullet({bulletData}) {
 
 
     return (
-        <div className='chess-bullet-container'>
+        <Card className='chess-bullet-container'>
           <h2>
             Bullet Stats
           </h2>
@@ -13,16 +14,16 @@ export default function ChessBullet({bulletData}) {
           <h2>
           Rating Trends
           </h2>
-          <div>
+          <Box>
             1 Day 
-          </div>
-          <div>
+          </Box>
+          <Box>
             3 Day 
-          </div>
-          <div>
+          </Box>
+          <Box>
             7 Day 
-          </div>
-        </div>
+          </Box>
+        </Card>
       );
     
 }
