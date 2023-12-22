@@ -8,7 +8,7 @@ import { getStatisticsForUsername } from "./StatisticsService";
 import NoStatsFound from "./NoStatsFound";
 import { Box } from '@mui/material';
 
-export default function Statistics() {
+function Statistics() {
     const [statsData, setStatsData] = useState(null);
     const [searchQuery, setCurrentSearchQuery] = useState('');
 
@@ -46,3 +46,4 @@ export default function Statistics() {
     );
 
 }
+export default Statistics;

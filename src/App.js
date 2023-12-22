@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
 import './App.css';
 import Statistics from './statistics/Statistics';
-import SearchAppBar from './statistics/search/AppBar';
+import OptionsBar from './statistics/options/AppBar';
 
 function App() {
   return (
     <Box className="app-container">
-      <SearchAppBar />
+      <OptionsBar />
       <Statistics />
     </Box>
   );
