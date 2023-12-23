@@ -1,7 +1,7 @@
 import './ChessRapid.css'
 import GameStats from "../game/GameStats";
 import { Box, Card } from '@mui/material';
-import ProgressChart from '../graph/ProgressLineChart';
+import { TestLine } from '../graph/TestLine';
 
 
 function ChessRapid({rapidData}) {
@@ -16,7 +16,7 @@ function ChessRapid({rapidData}) {
           Rating Trends
         </h2>
         <Box>
-          <ProgressChart />
+          <TestLine />
         </Box>
       </Card>
     );
