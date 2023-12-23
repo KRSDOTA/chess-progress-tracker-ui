@@ -3,12 +3,12 @@ import SearchBar from "./search/SearchBar";
 import ChessBlitz from "./chess_blitz/ChessBlitz";
 import ChessBullet from "./chess_bullet/ChessBullet";
 import ChessRapid from "./chess_rapid/ChessRapid";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getStatisticsForUsername } from "./StatisticsService";
 import NoStatsFound from "./NoStatsFound";
 import { Box } from '@mui/material';
 
-function Statistics() {
+function StatisticsOverview() {
     const [statsData, setStatsData] = useState(null);
     const [searchQuery, setCurrentSearchQuery] = useState('');
 
@@ -46,4 +46,4 @@ function Statistics() {
     );
 
 }
-export default Statistics;
+export default StatisticsOverview;

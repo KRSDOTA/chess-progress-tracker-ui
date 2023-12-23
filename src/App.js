@@ -10,7 +10,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import Statistics from './statistics/Statistics';
+import StatisticsOverview from './statistics/Statistics';
 import OptionsBar from './statistics/options/AppBar';
 
 
@@ -27,8 +27,8 @@ ChartJS.register(
 function App() {
   return (
     <Box className="app-container">
-      <OptionsBar />
-      <Statistics />
+      {/* <OptionsBar /> */}
+      <StatisticsOverview />
     </Box>
   );
 }
