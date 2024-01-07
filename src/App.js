@@ -11,8 +11,6 @@ import {
   Legend,
 } from 'chart.js';
 import StatisticsOverview from './statistics/Statistics';
-import OptionsBar from './statistics/options/AppBar';
-
 
 ChartJS.register(
   CategoryScale,

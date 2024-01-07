@@ -4,13 +4,14 @@ import ChessBlitz from "./chess_blitz/ChessBlitz";
 import ChessBullet from "./chess_bullet/ChessBullet";
 import ChessRapid from "./chess_rapid/ChessRapid";
 import { useState } from "react";
-import { getStatisticsForUsername } from "./StatisticsService";
+import { getRatingDeltaAcrossTimePeriod, getRecentGamesForPlayer, getStatisticsForUsername } from "./StatisticsService";
 import NoStatsFound from "./NoStatsFound";
 import { Box } from '@mui/material';
 
 function StatisticsOverview() {
     const [statsData, setStatsData] = useState(null);
     const [searchQuery, setCurrentSearchQuery] = useState('');
+    const [matchData, setCurrentMatchData] = useState([]);
 
     function searchStatsApiHandler(searchQueryEvent) {
       const currentSearchQuery = searchQueryEvent.target.value;
@@ -19,12 +20,14 @@ function StatisticsOverview() {
       }
       
       setCurrentSearchQuery(currentSearchQuery);
+
       getStatisticsForUsername(currentSearchQuery)
-      .then((response) => 
-          response.json()
-        ).then(data => 
-          setStatsData(data)
-      )
+      .then((response) => response.json())
+      .then(data => setStatsData(data));
+
+      getRatingDeltaAcrossTimePeriod(currentSearchQuery, "2023-01-01", "2023-12-31")
+      .then((response) => response.json())
+      .then(matchData => {setCurrentMatchData(matchData); console.log(matchData)});
 
     }
 
