@@ -7,6 +7,7 @@ import { useState } from "react";
 import { getRatingDeltaAcrossTimePeriod, getRecentGamesForPlayer, getStatisticsForUsername } from "./StatisticsService";
 import NoStatsFound from "./NoStatsFound";
 import { Box } from '@mui/material';
+import { DatePicker } from '@mui/x-date-pickers';
 
 function StatisticsOverview() {
     const [statsData, setStatsData] = useState(null);
@@ -38,7 +39,13 @@ function StatisticsOverview() {
     return (
       <Box className="statistics-container">
         <h1>Displaying Game Stats for {searchQuery.toUpperCase()}</h1>
-        <SearchBar onSearchHandler={searchStatsApiHandler}/> 
+        <SearchBar onSearchHandler={searchStatsApiHandler}/>
+        <DatePicker />
+        <DatePicker />
+        {/* <Box className="date-picker-container">
+          <DatePickerStart />
+          <DatePickerEnd />
+        </Box>  */}
         <Box className='statistics-game-container'>
           {noStatsPresent() && <NoStatsFound />}
           { statsData && statsData.chess_rapid && <ChessRapid rapidData={statsData.chess_rapid} /> }

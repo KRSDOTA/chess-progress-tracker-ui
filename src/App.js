@@ -11,6 +11,8 @@ import {
   Legend,
 } from 'chart.js';
 import StatisticsOverview from './statistics/Statistics';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 ChartJS.register(
   CategoryScale,
@@ -24,10 +26,11 @@ ChartJS.register(
 
 function App() {
   return (
-    <Box className="app-container">
-      {/* <OptionsBar /> */}
-      <StatisticsOverview />
-    </Box>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Box className="app-container">
+        <StatisticsOverview />
+      </Box>
+    </LocalizationProvider>
   );
 }
 
