@@ -3,16 +3,17 @@ import SearchBar from "./search/SearchBar";
 import ChessBlitz from "./chess_blitz/ChessBlitz";
 import ChessBullet from "./chess_bullet/ChessBullet";
 import ChessRapid from "./chess_rapid/ChessRapid";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { getRatingDeltaAcrossTimePeriod, getStatisticsForUsername } from "./StatisticsService";
 import NoStatsFound from "./NoStatsFound";
 import { Box } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
+import { getMatchesForDiscipline } from './MatchDataHelpers';
 
 function StatisticsOverview() {
     const [statsData, setStatsData] = useState(null);
     const [searchQuery, setCurrentSearchQuery] = useState('');
-    const [matchData, setCurrentMatchData] = useState({});
+    const [matchData, setCurrentMatchData] = useState([]);
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
 
@@ -47,9 +48,9 @@ function StatisticsOverview() {
       }
     }
 
-    const noStatsPresent = () => {
+    const noStatsPresent = useMemo(() => {
       return !statsData || (!statsData.chess_rapid && !statsData.chess_blitz && !statsData.chess_bullet);
-    }
+    }, [statsData]);
 
     return (
       <Box className="statistics-container">
@@ -58,10 +59,10 @@ function StatisticsOverview() {
         <DatePicker id="date-picker-start" onChange={(date) => getMatchData(date, "start")} />
         <DatePicker id="date-picker-end" onChange={(date) => getMatchData(date, "end")} />
         <Box className='statistics-game-container'>
-          {noStatsPresent() && <NoStatsFound />}
-          { statsData && statsData.chess_rapid && <ChessRapid rapidStats={statsData.chess_rapid} rapidData={matchData[0]} /> }
-          { statsData && statsData.chess_blitz && <ChessBlitz blitzData={statsData.chess_blitz} matchData={matchData[1] ? matchData[1] : []} /> }
-          { statsData && statsData.chess_bullet && <ChessBullet bulletData={statsData.chess_bullet} matchData={matchData[2] ? matchData[2] : []} /> }
+          {noStatsPresent && <NoStatsFound />}
+          { statsData && statsData.chess_rapid && <ChessRapid rapidStats={statsData.chess_rapid} rapidMatchData={getMatchesForDiscipline("RAPID", matchData)} /> }
+          { statsData && statsData.chess_blitz && <ChessBlitz blitzStats={statsData.chess_blitz} blitzMatchData={getMatchesForDiscipline("BLITZ", matchData)} /> }
+          { statsData && statsData.chess_bullet && <ChessBullet bulletStats={statsData.chess_bullet} bulletMatchData={getMatchesForDiscipline("BULLET", matchData)} /> }
         </Box>
       </Box>
     );

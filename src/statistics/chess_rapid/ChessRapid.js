@@ -2,16 +2,10 @@ import './ChessRapid.css'
 import GameStats from "../game/GameStats";
 import { Box, Card } from '@mui/material';
 import { LineGraph } from '../graph/LineGraph';
+import { isMatchDataPresent } from '../MatchDataHelpers';
 
 
-function ChessRapid({rapidStats, rapidData}) {
-
-  console.log(rapidData);
-
-  const noMatchDataPresent = () => {
-    return !rapidData || !rapidData.points || !rapidData.points.length;
-  }
-  console.log(noMatchDataPresent());
+function ChessRapid({rapidStats, rapidMatchData}) {
 
     return (
       <Card className="chess-rapid-container">
@@ -19,11 +13,8 @@ function ChessRapid({rapidStats, rapidData}) {
           Rapid Stats
         </h2>
         <GameStats gameStats={rapidStats} />
-        <h2>
-          Rating Trends
-        </h2>
         <Box>
-          {!noMatchDataPresent() && <LineGraph dataPoints={rapidData} label='Rapid Rating'/>}
+          {isMatchDataPresent(rapidMatchData) && <LineGraph dataPoints={rapidMatchData.points} graphLabel='Rapid Rating' />}
         </Box>
       </Card>
     );
