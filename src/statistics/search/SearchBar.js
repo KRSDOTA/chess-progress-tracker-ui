@@ -19,7 +19,6 @@ export default function SearchBar({onSearchHandler}) {
             <TextField
             hiddenLabel
             id="filled-hidden-label-small"
-            defaultValue="username"
             label="username"
             variant="outlined"
             onChange={debouncedSearchResults}

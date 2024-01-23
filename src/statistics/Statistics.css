@@ -1,11 +1,11 @@
-.statistics-container {
+.statistics-container-column {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.statistics-game-container {
+.statistics-game-container-row {
     display: flex;
     justify-content: center;
     align-items: center;

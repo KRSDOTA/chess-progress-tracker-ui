@@ -53,12 +53,14 @@ function StatisticsOverview() {
     }, [statsData]);
 
     return (
-      <Box className="statistics-container">
+      <Box className="statistics-container-column">
         <h1>Displaying Game Stats for {searchQuery.toUpperCase()}</h1>
-        <SearchBar onSearchHandler={searchStatsApiHandler}/>
-        <DatePicker id="date-picker-start" onChange={(date) => getMatchData(date, "start")} />
-        <DatePicker id="date-picker-end" onChange={(date) => getMatchData(date, "end")} />
-        <Box className='statistics-game-container'>
+        <Box className="statistics-game-container-row">
+          <SearchBar onSearchHandler={searchStatsApiHandler}/>
+          <DatePicker id="date-picker-start" label="start" onChange={(date) => getMatchData(date, "start")} />
+          <DatePicker id="date-picker-end" label="end" onChange={(date) => getMatchData(date, "end")} />
+        </Box>
+        <Box className='statistics-game-container-row'>
           {noStatsPresent && <NoStatsFound />}
           { statsData && statsData.chess_rapid && <ChessRapid rapidStats={statsData.chess_rapid} rapidMatchData={getMatchesForDiscipline("RAPID", matchData)} /> }
           { statsData && statsData.chess_blitz && <ChessBlitz blitzStats={statsData.chess_blitz} blitzMatchData={getMatchesForDiscipline("BLITZ", matchData)} /> }
