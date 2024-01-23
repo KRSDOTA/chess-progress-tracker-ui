@@ -1,7 +1,7 @@
 import './ChessBullet.css'
 import GameStats from "../game/GameStats";
 import { Box, Card } from '@mui/material';
-import { TestLine } from "../graph/TestLine";
+import { LineGraph } from '../graph/LineGraph';
 
 export default function ChessBullet({bulletData}) {
 
@@ -16,7 +16,7 @@ export default function ChessBullet({bulletData}) {
           Rating Trends
           </h2>
           <Box>
-            <TestLine />
+            <LineGraph label='Bullet Rating' />
           </Box>
         </Card>
       );

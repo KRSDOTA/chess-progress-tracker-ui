@@ -16,18 +16,19 @@ export const options = {
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
-export const data = {
-  labels,
+export function LineGraph({ dataPoints, label }) {
+  
+const data = {
   datasets: [
+    [...dataPoints.time],
     {
-      label: 'Dataset 1',
-      data: [300, 400, 500, 600, 700, 800],
+      label: label,
+      data: [...dataPoints.rating],
       borderColor: 'rgb(255, 99, 132)',
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
     }
   ],
 };
 
-export function TestLine() {
   return <Line options={options} data={data} />;
 }

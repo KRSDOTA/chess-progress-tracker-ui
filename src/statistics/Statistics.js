@@ -12,7 +12,7 @@ import { DatePicker } from '@mui/x-date-pickers';
 function StatisticsOverview() {
     const [statsData, setStatsData] = useState(null);
     const [searchQuery, setCurrentSearchQuery] = useState('');
-    const [matchData, setCurrentMatchData] = useState([]);
+    const [matchData, setCurrentMatchData] = useState({});
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
 
@@ -43,11 +43,9 @@ function StatisticsOverview() {
       if (startDate && endDate) {
         const response = await getRatingDeltaAcrossTimePeriod(searchQuery, startDate, endDate);
         const matchDataUpdate = await response.json();
-        console.log(matchDataUpdate);
         setCurrentMatchData(matchDataUpdate);
       }
     }
-
 
     const noStatsPresent = () => {
       return !statsData || (!statsData.chess_rapid && !statsData.chess_blitz && !statsData.chess_bullet);
@@ -61,9 +59,9 @@ function StatisticsOverview() {
         <DatePicker id="date-picker-end" onChange={(date) => getMatchData(date, "end")} />
         <Box className='statistics-game-container'>
           {noStatsPresent() && <NoStatsFound />}
-          { statsData && statsData.chess_rapid && <ChessRapid rapidData={statsData.chess_rapid} /> }
-          { statsData && statsData.chess_blitz && <ChessBlitz blitzData={statsData.chess_blitz} /> }
-          { statsData && statsData.chess_bullet && <ChessBullet bulletData={statsData.chess_bullet} /> }
+          { statsData && statsData.chess_rapid && <ChessRapid rapidStats={statsData.chess_rapid} rapidData={matchData[0]} /> }
+          { statsData && statsData.chess_blitz && <ChessBlitz blitzData={statsData.chess_blitz} matchData={matchData[1] ? matchData[1] : []} /> }
+          { statsData && statsData.chess_bullet && <ChessBullet bulletData={statsData.chess_bullet} matchData={matchData[2] ? matchData[2] : []} /> }
         </Box>
       </Box>
     );

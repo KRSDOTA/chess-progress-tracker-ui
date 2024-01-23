@@ -1,7 +1,7 @@
 import "./ChessBlitz.css"
 import GameStats from "../game/GameStats";
 import { Box, Card } from "@mui/material";
-import { TestLine } from "../graph/TestLine";
+import { LineGraph } from "../graph/LineGraph";
 
 export default function ChessBlitz({blitzData}) {
 
@@ -16,7 +16,7 @@ export default function ChessBlitz({blitzData}) {
             Rating Trends
           </h2>
           <Box>
-            <TestLine />
+            <LineGraph label='Blitz Rating'/>
           </Box>
         </Card>
       );
